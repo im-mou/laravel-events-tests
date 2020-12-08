@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::resource('tasks', TaskController::class);
+
+/**  Verb	    URI	                    Action	    Route Name
+ *
+ *   GET	    /tasks	                index	    tasks.index
+ *   GET	    /tasks/create	        create	    tasks.create
+ *   POST	    /tasks	                store	    tasks.store
+ *   GET	    /tasks/{photo}	        show	    tasks.show
+ *   GET	    /tasks/{photo}/edit	    edit	    tasks.edit
+ *   PUT/PATCH	/tasks/{photo}	        update	    tasks.update
+ *   DELETE	    /tasks/{photo}	        destroy	    tasks.destroy
+ *
+ */
