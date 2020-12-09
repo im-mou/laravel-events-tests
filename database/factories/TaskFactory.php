@@ -25,7 +25,7 @@ class TaskFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
-            'groups' => implode("|", $this->faker->randomElements($groups, $this->faker->numberBetween(1, count($groups)-1)))
+            'groups' => $this->faker->randomElements($groups, $this->faker->numberBetween(1, count($groups)-1))
         ];
     }
 }

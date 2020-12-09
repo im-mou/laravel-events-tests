@@ -45,6 +45,36 @@
                 @yield('content')
             </div>
 
+            <script>
+
+                var headers = {
+                    'X-CSRF-TOKEN': document.querySelector("meta[name='csrf-token']").getAttribute("content")
+                }
+
+                document.querySelectorAll(".delete-task").forEach(function(item){
+                    item.addEventListener("click", function _evtListener(event){
+
+                        var id = item.getAttribute('data-id');
+
+                        fetch("/tasks/" + id, { method: "DELETE", headers: headers })
+                        .then(function (response) {
+                            if(response.ok) {
+                                item.removeEventListener("click", _evtListener);
+
+                                var taskItem = document.querySelector(".task-item-"+id);
+                                if(taskItem) {
+                                    taskItem.parentNode.removeChild(taskItem);
+                                } else {
+                                    window.location.href= "/tasks";
+                                }
+
+                            }
+                        });
+                    });
+                })
+
+            </script>
+
         </div>
     </body>
 </html>

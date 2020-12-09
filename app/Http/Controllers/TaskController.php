@@ -23,8 +23,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = $this->taskService->getAllTasks();
-        return view('tasks', ['tasks' => $tasks]);
+        $task = $this->taskService->getAllTasks();
+        return view('tasks', ['tasks' => $task]);
     }
 
     /**
@@ -45,28 +45,27 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        $tasks = $this->taskService->createTask($request);
-        return view('tasks', ['tasks' => $tasks]);
+        return $this->taskService->createTask($request);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Task  $tasks
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $tasks)
+    public function show(Task $task)
     {
-        //
+        return view('showtask', ['task' => $task]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Task  $tasks
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $tasks)
+    public function edit(Task $task)
     {
         //
     }
@@ -75,10 +74,10 @@ class TaskController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Task  $tasks
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $tasks)
+    public function update(Request $request, Task $task)
     {
         //
     }
@@ -86,11 +85,11 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Task  $tasks
+     * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $tasks)
+    public function destroy(Task $task)
     {
-        //
+        return $this->taskService->destroyTask($task);
     }
 }

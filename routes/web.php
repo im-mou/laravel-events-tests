@@ -25,9 +25,9 @@ Route::resource('tasks', TaskController::class);
  *   GET	    /tasks	                index	    tasks.index
  *   GET	    /tasks/create	        create	    tasks.create
  *   POST	    /tasks	                store	    tasks.store
- *   GET	    /tasks/{photo}	        show	    tasks.show
- *   GET	    /tasks/{photo}/edit	    edit	    tasks.edit
- *   PUT/PATCH	/tasks/{photo}	        update	    tasks.update
- *   DELETE	    /tasks/{photo}	        destroy	    tasks.destroy
+ *   GET	    /tasks/{id}	            show	    tasks.show
+ *   GET	    /tasks/{id}/edit	    edit	    tasks.edit
+ *   PUT/PATCH	/tasks/{id}	            update	    tasks.update
+ *   DELETE	    /tasks/{id}	            destroy	    tasks.destroy
  *
  */

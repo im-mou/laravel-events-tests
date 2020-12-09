@@ -14,4 +14,14 @@ class Task extends Model
         'description',
         'groups',
     ];
+
+    public function getGroupsAttribute($value)
+    {
+        return explode('|', $value);
+    }
+
+    public function setGroupsAttribute($value)
+    {
+        $this->attributes['groups'] = implode('|', $value);
+    }
 }
